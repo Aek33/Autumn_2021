@@ -1,14 +1,38 @@
-from sortMethods import quick
-from sortMethods import bubble
-
-list_1 = [8, 7, 9, 5, 9, 1, 5, 99, 0, 1, 0.5]
-list_2 = [8, 7, 9, "a", "b", "c", "za", "zb", 0, 3, 1]
-q_sort_1 = quick.quickSort(list_1)
-q_sort_2 = quick.quickSort(list_2)
+from sortMethods import quick, bubble, insertion, radix, selection, merge, bucket, heap
+print("---%s---" % "Original lists")
+print([8, 7, 964, 5, 9, 1, 5, 99, 0, 100])
+print([8, 7, 9, "c", "b", "a", "zz", "za", 0, 3, 1])
+q_sort_1 = quick.quickSort([8, 7, 964, 5, 9, 1, 5, 99, 0, 100])
+q_sort_2 = quick.quickSort([8, 7, 9, "c", "b", "a", "zz", "za", 0, 3, 1])
+print("---%s---" % "Quick sort")
 print(q_sort_1)
 print(q_sort_2)
-b_sort_1 = bubble.bubbleSort(list_1)
-b_sort_2 = bubble.bubbleSort(list_2)
+b_sort_1 = bubble.bubbleSort([8, 7, 964, 5, 9, 1, 5, 99, 0, 100])
+b_sort_2 = bubble.bubbleSort([8, 7, 9, "c", "b", "a", "zz", "za", 0, 3, 1])
+print("---%s---" % "Insertion sort")
 print(b_sort_1)
 print(b_sort_2)
+i_sort_1 = insertion.insertionSort([8, 7, 964, 5, 9, 1, 5, 99, 0, 100])
+i_sort_2 = insertion.insertionSort([8, 7, 9, "c", "b", "a", "zz", "za", 0, 3, 1])
+print("---%s---" % "Bubble sort")
+print(i_sort_1)
+print(i_sort_2)
+r_sort_1 = radix.radixSort([8, 7, 964, 5, 9, 1, 5, 99, 0, 100])
+print("---%s---" % "Radix sort")
+print(r_sort_1)
+s_sort_1 = selection.selectionSort([8, 7, 964, 5, 9, 1, 5, 99, 0, 100])
+print("---%s---" % "Selection sort")
+print(s_sort_1)
+m_sort_1 = merge.mergeSort([8, 7, 964, 5, 9, 1, 5, 99, 0, 100])
+print("---%s---" % "Marge sort")
+print(m_sort_1)
+bucket_sort_1 = bucket.bucketSort([8, 7, 964, 5, 9, 1, 5, 99, 0, 100])
+print("---%s---" % "Bucket sort")
+print(bucket_sort_1)
+h_sort_1 = heap.heapSort([8, 7, 964, 5, 9, 1, 5, 99, 0, 100])
+h_sort_2 = heap.heapSort([8, 7, 9, "c", "b", "a", "zz", "za", 0, 3, 1])
+print("---%s---" % "Heap sort")
+print(h_sort_1)
+print(h_sort_2)
+
 
