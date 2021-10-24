@@ -9,6 +9,8 @@ on dynamically entered characters and variables.
 __all__ = ["bubble", "bucket", "heap", "insertion",
            "merge", "quick", "radix", "selection"]
 
+from sortMethods import *
+
 
 def if_str(_list_, only_num=False):
     """
@@ -32,3 +34,44 @@ def if_str(_list_, only_num=False):
         raise TypeError("Method for numeric variables only!")
     else:
         return _list_
+
+
+def quick_sort(list_):
+    list_to_return = quick.quickSort(list_)
+    return list_to_return
+
+
+def bubble_sort(list_):
+    list_to_return = bubble.bubbleSort(list_)
+    return list_to_return
+
+
+def merge_sort(list_):
+    list_to_return = merge.mergeSort(list_)
+    return list_to_return
+
+
+def selection_sort(list_):
+    list_to_return = selection.selectionSort(list_)
+    return list_to_return
+
+
+def insertion_sort(list_):
+    list_to_return = insertion.insertionSort(list_)
+    return list_to_return
+
+
+def heap_sort(list_):
+    list_to_return = heap.heapSort(list_)
+    return list_to_return
+
+
+def radix_sort(list_):
+    list_to_return = radix.radixSort(list_)
+    return list_to_return
+
+
+def bucket_sort(list_):
+    list_to_return = bucket.bucketSort(list_)
+    return list_to_return
+
