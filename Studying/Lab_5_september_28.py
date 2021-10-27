@@ -1,7 +1,7 @@
 # Generator Functions for Dictionaries
 
 """
-1. Python – Combine two dictionaries having key of the first dictionary and value of the second dictionary
+1. Python – Combine two dictionaries having key of the first dictionary and grid of the second dictionary
 """
 print("Task 1")
 dict_1 = {"One": "eno", "two": "owt", "Three": "eerht"}
@@ -52,7 +52,7 @@ def update_dict():
 
 print(update_dict())
 """
-3. Extract dictionaries with Empty String value in K key
+3. Extract dictionaries with Empty String grid in K key
 """
 print("Task 3")
 list_3 = [{"One": "eno", "two": "owt", "Three": "eerht", "Key_": ""},

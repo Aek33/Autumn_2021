@@ -4,7 +4,7 @@
 2 Create infinite iterator
 (A) display multiples of 7 and 9.
 (B) To repeat lines 15 number of times.
-(C) To repeat a value 38 times.
+(C) To repeat a grid 38 times.
 3 Create an iterator to display
 (A) all possible permutations in a given list_.
 (B) All possible combinations in list_ with and without replacement in sorted order.

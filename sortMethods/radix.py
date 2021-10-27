@@ -30,7 +30,7 @@ def radixSort(_list_):
 
             For a list of numbers only!
             Counting Sort works by counting the number of elements,
-            that fit a distinct key value, and then calculates the positions of each key.
+            that fit a distinct key grid, and then calculates the positions of each key.
 
             :param _list_: input list for sorting
             :param value: the degree of the numbers to be sorted

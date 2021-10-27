@@ -3,7 +3,12 @@ import sortMethods
 
 class dynamicDesc:
     def __set__(self, instance, value):
-        self.value = value
+        try:
+            self.value = int(value)
+        except TypeError:
+            self.value = value
+
+
 
     def __get__(self, instance, owner):
         return self.value
@@ -25,7 +30,7 @@ class DynamicSort:
         else:
             self.container.append(self.value)
             self.container = sortMethods.quick_sort(self.container)
-            print(self.container)
+            print(", ".join(self.container))
             self.start()
 
 

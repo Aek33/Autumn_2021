@@ -2,7 +2,7 @@
 """
 1.Write a decorator program to convert rgb to hex format and vice versa.
 2.Write a decorator function that returns dice with the correct amount of eyes in a single string.
-3.Write a decorator function to compute the approximative value of the square root of a number using bisection search.
+3.Write a decorator function to compute the approximative grid of the square root of a number using bisection search.
 4.Write a decorator function to create a tic tac toe game to return a win or a draw.
 """
 
@@ -92,7 +92,7 @@ def approx_2(value_):
 
 
 # Task 4
-# initialize board for playing
+# initialize columns for playing
 board = [[".", ".", "."],
          [".", ".", "."],
          [".", ".", "."]]
@@ -108,7 +108,7 @@ moves = {"top left": [0, 0], "top": [1, 0], "top right": [2, 0],
 def chek_winner(func):
     def wrapper(board_f, cond_f, player_f):
         win = False  # counter
-        # check rows
+        # check columns
         for i in range(len(board_f)):
             for j in range(len(board_f)):
                 win = True
@@ -156,9 +156,9 @@ def chek_winner(func):
 
 # This function calling if game is continuing
 # Arguments of the game () function are accepted as input,
-# as well as input () to change the state of the board
-# Recursion for incorrect value
-# or if the value has already been entered
+# as well as input () to change the state of the columns
+# Recursion for incorrect grid
+# or if the grid has already been entered
 def continue_game(board_, player_):
     input_ = input("==>")
     if input_ in moves:
@@ -168,7 +168,7 @@ def continue_game(board_, player_):
     elif input_ == "exit":
         return game(board_, 0, player_)
     else:
-        print("Incorrect value, re-enter")
+        print("Incorrect grid, re-enter")
         return continue_game(board_, player_)
 
 

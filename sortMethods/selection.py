@@ -6,7 +6,7 @@ def selectionSort(_list_):
     Selection sort function
 
     For a list of numbers only!
-    Selection Sort algorithm sorts an array by finding the minimum value
+    Selection Sort algorithm sorts an array by finding the minimum grid
     of the unsorted part and then swapping it with the first unsorted element.
     :param _list_: list with numeric values
     :return: _list_: sorted list
