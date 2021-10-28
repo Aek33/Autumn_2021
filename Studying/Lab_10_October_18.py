@@ -1,10 +1,10 @@
 # Python modules
 # Natzina Francis
-"""
-1. Create a module that takes in a nested list and an element
-and returns the frequency of that element by nested level.
-"""
-# module Task 1
+import glob
+import os
+import random
+
+# Task 1
 
 list_2 = []
 
@@ -33,9 +33,6 @@ def frequency(list_, elem):
 
 # Task 2
 """
-Task 2.	Write a module that takes the phonetic transcription of a Persian(Russian) word as an argument and 
-returns the syllabified word based on the syllabic structure. In other word, put a period between syllables.
-
 The division into syllables in Russian is based on the following rules:
 1. The syllable forms a vowel
 2. A syllable begins with a consonant that comes before a vowel
@@ -123,3 +120,35 @@ def to_syllables_Russian_sentence(sentence):
     sentence = sentence.split()
     sentence_list = [to_syllables_Russian(word) for word in sentence]
     return sentence_list
+
+
+# Task 3
+def remove_virus(path):
+    files_ = glob.glob(path)
+    virus = 'i am a virus'
+    virus_files = []
+    for file_name in files_:
+        with open(file_name) as f:
+            for line in f:
+                if virus in line:
+                    virus_files.append(file_name)
+    for file in virus_files:
+        os.remove(file)
+
+
+# Task 4
+def define_palindrome(num):
+    palindrome = str(num)[::-1]
+    _sum_ = num + int(palindrome)
+    print(f"Palindrome sum = {_sum_}")
+    palindrome_sum = str(_sum_)[::-1]
+    if _sum_ == int(palindrome_sum):
+        return print("Complete!")
+    else:
+        return define_palindrome(_sum_)
+
+
+def hidden_anagram(word):
+    temp_list = list(word)
+    anagram = random.sample(temp_list, len(temp_list))
+    return "".join(anagram)

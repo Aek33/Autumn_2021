@@ -8,8 +8,6 @@ class dynamicDesc:
         except TypeError:
             self.value = value
 
-
-
     def __get__(self, instance, owner):
         return self.value
 
