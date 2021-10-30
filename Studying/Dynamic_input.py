@@ -20,6 +20,10 @@ class DynamicSort:
 
     def start(self):
         self.value = input("--> ")
+        try:
+            self.value = int(self.value)
+        except ValueError:
+            self.value = self.value
         if self.value == "exit":
             return "Input completed!"
         elif self.value == "" or self.value == " ":
@@ -27,8 +31,8 @@ class DynamicSort:
             self.start()
         else:
             self.container.append(self.value)
-            self.container = sortMethods.quick_sort(self.container)
-            print(", ".join(self.container))
+            self.container = sortMethods.heap_sort(self.container)
+            print(self.container)
             self.start()
 
 

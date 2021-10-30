@@ -1,107 +1,83 @@
-import unittest
+from tabulate import tabulate as tb
 
 
 # 000950760007013800400000090000300100039000080840069000095621078600000015174890023
+# 538471296219865473467329518986537124175642839324918657852796341741283965693154782
+class Sudoku:
 
-class gridCheck:
-    """
-    Descriptor for sudoku board.
-    Checks the game grid and returns the appropriate trigger
-    0 - descriptor error
-    1 - continue
-    2 - puzzle solved
-
-    :return: self.trigger
-    """
-
-    def __init__(self):
-        self.box_trigger = True
-        self.row_trigger = True
-        self.column_trigger = True
-        self.trigger = 0
+    def __init__(self, start_field):
+        if not isinstance(start_field, str):
+            raise TypeError("String type required!")
+        elif len(start_field) != 81:
+            raise ValueError("Requires a string of length 81!")
+        for char in start_field:
+            if not char.isdecimal():
+                raise TypeError("String with integer values is required!")
+        else:
+            self.grid = [start_field[i] for i in range(81)]
         self.check_set = set(map(str, range(1, 10)))
+        self.count = 0
+        self.immutable_val = {i for i in range(len(self.grid))
+                              if self.grid[i] in self.check_set}
 
-    def __set__(self, instance, value):
-        self.grid = value
+    def input_value(self):
+        """function for entering a new value by grid coordinates"""
+        column = input("Enter column number ->")
+        row = input("Enter line number ->")
+        value = input("Enter value ->")
+        if column not in self.check_set \
+                or row not in self.check_set \
+                or value not in self.check_set:
+            print("Incorrect value, re-enter!")
+            self.input_value()
+        else:
+            place = (int(row) * 9 - 1) - (9 - int(column))
+            if place in self.immutable_val:
+                print("You cannot change the originally set numbers, try different coordinates!")
+                self.input_value()
+            else:
+                self.grid[place] = value
 
     def check_rows(self):
-        rows = [[self.grid[step:step + 9]] for step in range(0, 81, 9)]
+        _str_ = "".join(self.grid)
+        rows = [[_str_[step:step + 9]] for step in range(0, 81, 9)]
         for row in rows:
             row_to_check = set([i for i in row[0]])
             if row_to_check != self.check_set:
-                self.row_trigger = False
-                break
+                return False
+        return True
 
     def check_columns(self):  # Можно реализовать через проверку ряда, транспонировав сетку
-        columns = [[self.grid[position:73 + position: 9]] for position in range(9)]
+        _str_ = "".join(self.grid)
+        columns = [[_str_[position:73 + position: 9]] for position in range(9)]
         for column in columns:
             column_to_check = set([i for i in column[0]])
             if column_to_check != self.check_set:
-                self.column_trigger = False
-                break
+                return False
+        return True
 
     def check_boxes(self):
-        boxes = [[[self.grid[i: i + 3] for i in range(j, j + 19, 9)]
+        _str_ = "".join(self.grid)
+        boxes = [[[_str_[i: i + 3] for i in range(j, j + 19, 9)]
                   for j in range(k, k + 7, 3)] for k in range(0, 55, 27)]
         for row in boxes:
             for box in row:
                 box_to_check = set("".join(box))
                 if box_to_check != self.check_set:
-                    self.box_trigger = False
-                    break
+                    return False
+        return True
 
-    def __get__(self, instance, owner):
-        self.check_rows()
-        self.check_columns()
-        self.check_boxes()
-        if self.row_trigger and self.column_trigger and self.box_trigger:
-            self.trigger = 2
-        else:
-            self.trigger = 1
-        return self.trigger
-
-
-class Sudoku:
-    check = gridCheck()
-
-    def __init__(self, str_):
-        self.grid = [str_[i] for i in range(81)]
-
-    def insert(self, place, value):
-        """
-        Descriptor for input
-        """
-        if place not in set(range(1, 82)):
-            print("Invalid input, select a value from 1 to 81")
-            return "error"
-        if value not in set(range(1, 10)):
-            print("Invalid input, select a value from 1 to 9")
-            return "error"
-        self.grid[place - 1] = str(value)
-        return self.grid
-
-    def new_game(self):
-        insert = self.insert(int(input("Input place:")), int(input("Input value:")))
-        if insert == "error":
-            return self.new_game()
-        self.check = "".join(insert)
-        trigger = self.check
-        if trigger == 1:
-            self.new_game()
-        elif trigger == 2:
+    def game(self):
+        print(tb({i: self.grid[i:73 + i: 9] for i in range(9)}, tablefmt="simple"))
+        if self.check_rows() and self.check_columns() and self.check_boxes():
             print("Puzzle solved!")
+            return f"You made {self.count} turns"
+        else:
+            self.count += 1
+            self.input_value()
+            return self.game()
 
 
-
-
-sudoku = Sudoku("000950760007013800400000090000300100039000080840069000095621078600000015174890023")
-sudoku.new_game()
-"""
-class TestLabWork(unittest.TestCase):
-    check = gridCheck()
-
-    def test_chek_r(self):
-        self.check = "000950760007013800400000090000300100039000080840069000095621078600000015174890023"
-        check = self.check
-        self.assertEqual(check, 1)
-"""
+if __name__ == "__main__":
+    sudoku_1 = Sudoku("008471296219865473467329518986537124175642839324918657852796341741283965693154782")
+    print(sudoku_1.game())

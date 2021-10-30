@@ -34,8 +34,3 @@ print(r_sort_1)
 bucket_sort_1 = sortMethods.bucket_sort([8, 7, 964, 5, 9, 1, 5, 99, 0, 100])
 print("---%s---" % "Bucket sort")
 print(bucket_sort_1)
-
-
-
-
-
