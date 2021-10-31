@@ -8,7 +8,7 @@ Repeat a substring pattern
 Return the longest alternating substring
 And finally create a function to perform unit testing on each part of program execution
 Task 2
-Create a class to pass a string as an argument to Sudoku. Create another class to unit test the performance of sudoku.
+Create a class to pass a string as an argument to Sudoku. Create another class to unit test the performance of sudoku_f.
 Matrix 9*9
 """
 import unittest

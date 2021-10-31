@@ -39,6 +39,10 @@ class Sudoku:
                 self.grid[place] = value
 
     def check_rows(self):
+        """
+        Function for checking the rows of the grid
+        :return: True or False
+        """
         _str_ = "".join(self.grid)
         rows = [[_str_[step:step + 9]] for step in range(0, 81, 9)]
         for row in rows:
@@ -48,6 +52,10 @@ class Sudoku:
         return True
 
     def check_columns(self):  # Можно реализовать через проверку ряда, транспонировав сетку
+        """
+        Function for checking the columns of the grid
+        :return: True or False
+        """
         _str_ = "".join(self.grid)
         columns = [[_str_[position:73 + position: 9]] for position in range(9)]
         for column in columns:
@@ -57,6 +65,10 @@ class Sudoku:
         return True
 
     def check_boxes(self):
+        """
+        Function for checking the boxes of the grid
+        :return: True or False
+        """
         _str_ = "".join(self.grid)
         boxes = [[[_str_[i: i + 3] for i in range(j, j + 19, 9)]
                   for j in range(k, k + 7, 3)] for k in range(0, 55, 27)]
@@ -68,6 +80,10 @@ class Sudoku:
         return True
 
     def game(self):
+        """
+        The main function, checks the state of the puzzle,
+        displays the grid, continues the game if necessary, updates the move counter
+        """
         print(tb({i: self.grid[i:73 + i: 9] for i in range(9)}, tablefmt="simple"))
         if self.check_rows() and self.check_columns() and self.check_boxes():
             print("Puzzle solved!")
@@ -79,5 +95,5 @@ class Sudoku:
 
 
 if __name__ == "__main__":
-    sudoku_1 = Sudoku("008471296219865473467329518986537124175642839324918657852796341741283965693154782")
+    sudoku_1 = Sudoku("538471296219865473467329518986537124175642839324918657852796341741283965693154782")
     print(sudoku_1.game())
