@@ -3,7 +3,8 @@ import numpy as np
 import datetime
 import tracemalloc
 import time
-
+import seaborn as sns
+import matplotlib.pyplot as plt
 start_time = time.time()
 tracemalloc.start()
 print("---%s---" % "Task 1")
@@ -429,3 +430,53 @@ print(f"Task 3 Question 75 Split a text column into two separate columns\nDatafr
 
 print("Current: %d, Peak %d" % tracemalloc.get_traced_memory())
 print("--- %s seconds ---" % (time.time() - start_time))
+
+# Upload data
+data = pd.read_csv("alphabet_stock_data.csv")
+data["Date"] = pd.to_datetime(data["Date"])
+# Cutting data
+start = pd.to_datetime("2020-09-01")
+end = pd.to_datetime("2020-09-15")
+sample = data[(data['Date'] >= start) & (data['Date'] <= end)].iloc[:, :-1]
+sample["Date"] = sample["Date"].dt.strftime("%Y-%m-%d")
+# Plot settings
+sns.set_theme(style="white", palette="magma", font="sans-serif")
+# Line plot
+line = sns.relplot(kind="line", data=sample)
+line.set(xlabel="Date", ylabel="Stock price", title="Line plot")
+plt.show()
+# Bar plot
+bar = sns.barplot(data=sample, x="Date", y="Open", palette="magma")
+bar.set(xlabel="Date", ylabel="Open", title="Bar plot")
+plt.xticks(rotation=45)
+plt.show()
+# Stacked bar plot
+sample.set_index("Date").plot(kind="bar", stacked=True)
+plt.xlabel("Date")
+plt.ylabel("Stock price")
+plt.title("Stacked bar plot")
+plt.xticks(rotation=45)
+plt.show()
+# Horizontal stacked bar plot
+sample.set_index("Date").plot(kind="barh", stacked=True)
+plt.xlabel("Stock price")
+plt.ylabel("Date")
+plt.title("Horizontal stacked bar plot")
+plt.show()
+# Histogram
+sample.set_index("Date").plot(kind="hist")
+plt.xlabel("Date")
+plt.ylabel("Stock price")
+plt.title("Histogram")
+plt.show()
+# Stacked histogram
+sample.set_index("Date").plot(kind="hist", stacked=True)
+plt.xlabel("Date")
+plt.ylabel("Stock price")
+plt.title("Stacked histogram")
+plt.show()
+# Scatter plot
+scatter = sns.scatterplot(data=sample, x="Date", y="Open")
+scatter.set(xlabel="Date", ylabel="Open", title="Scatter plot")
+plt.xticks(rotation=45)
+plt.show()
