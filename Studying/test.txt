@@ -1,4 +1,98 @@
-Первая строка
-Съешь ещё этих мягких французских булок да выпей же чаю
-The quick brown fox jumps over the lazy dog
-1234567890
+Task 1
+1 Import pandas and check the version
+2 Create a series from a list, NumPy array and dict
+3 Convert the index of a series into a column of a data frame
+4 Combine many series to form a data frame
+5 Assign name to the series’ index
+6 Get the items of series A that is not present in series B
+7 Get the items not common to both series A and series B
+8 Get the minimum, 25th percentile, median, 75th, and max of a numeric series
+9 Get frequency counts of unique items of a series
+10 Keep only top 2 most frequent values as it is and replace everything else as ‘Other’
+11 Bin a numeric series to 10 groups of equalsize
+12 Convert a NumPy array to a data frame of given shape
+13 Find the positions of numbers that are multiples of 3 from a series
+14 Extract items at given positions from a series
+15 Stack two series vertically and horizontally
+16 Get the positions of items of series A in another series B
+17 Compute the mean squared error on a truth and predicted series
+18 Convert the first character of each element in a series to uppercase
+19 Calculate the number of characters in each word in a series
+20 Compute difference of differences between consecutive numbers of a series
+21 Convert a series of date-strings to a time series
+22 Get the day of month, week, day of year and day of week from a series of date strings
+23 Convert year-month string to dates corresponding to the 4th day of the month
+Task 2
+24 Filter words that contain at least 2 vowels from a series
+25 Filter valid emails from a series
+26 Get the mean of a series grouped by another series
+27 Compute the Euclidean distance between two series
+28 Find all the local maxima (or peaks) in a numeric series
+29 replace missing spaces in a string with the least frequent character
+30 create a Timeseries starting ‘2000-01-01’ and 10 weekends (Saturdays) after that having random numbers as values
+31 Fill an intermittent time series so all missing dates showup with values of previous non-missing date
+32 Compute the autocorrelations of a numeric series
+33 Import only every nth row from a csv file to create a data frame
+34 Change column values when importing csv to a data frame
+35 create a data frame with rows as strides from a given series
+36 Import only specified columns from a csv file
+37 Get the nrows, ncolumns, datatype, summary stats of each column of a data frame
+38 Also get the array and list equivalent
+39 Extract the row and column number of a particular cell with given criterion
+40 rename a specific column in a data frame
+41 Check if a dataframe has any missing values
+42 Count the number of missing values in each column
+43 Replace missing values of multiple numeric columns with the mean
+44 Use apply function on existing columns with global variables as additional arguments
+45 Select a specific column from a dataframe as a dataframe instead of a series
+46 Change the order of columns of a dataframe
+Task 3
+47 Set the number of rows and columns displayed in the output
+48 Format or suppress scientific notations in a pandas dataframe
+49 Format all the values in a dataframe as percentages
+50 Filter every nth row in a dataframe
+51 Create a primary key index by combining relevant columns
+52 Get the row number of the nth largest value in a column
+53 Find the position of the nth largest value greater than a given value
+54 Get the last n rows of a dataframe with row sum > 100
+55 Find and cap outliers from a series ordataframe column
+56 Reshape a dataframe to the largest possible square after removingthe negative values
+57 swap two rows of a dataframe
+58 Reverse the rows of a dataframe
+59 Create one-hot encodings of a categorical variable (dummy variables)
+60 Which column contains the highest number of row-wise maximum values
+61 Create a new column that contains the row number of nearest column by Euclidean distance
+62 Know the maximum possible correlation value of each column against other columns
+63 Create a column containing the minimum by maximum of each row
+64 Create a column that contains the penultimate value in each row
+65 Normalise all columns in a dataframe
+66 compute the correlation of each row with the succeeding row
+67 Replace both the diagonals of dataframe with 0
+68 get the particular group of a group-by dataframe by key
+69 Get the nth largest value of a column when grouped by another column
+70 Compute grouped mean on pandas dataframe and keep the grouped column as another column(not index)
+71 Join two dataframes by 2 columns so they have only the common rows
+72 Get the positions where values of two columns match
+73 Create lags and leads of a column in a dataframe
+74 Get the frequency of unique values in the entire dataframe
+75 Split a text column into two separate columns
+Task 4
+76 Write a Pandas program to create a line plot, bar plot, stacked bar plot, horizonta lstacked bar plot, histogram, and stacked histogram of the historical stock prices ofAlphabet Inc between two specific dates
+77 Also visualise daily return distribution of Alphabet Inc stock price between two specific dates using a scatter plot
+
+	Черный	# 000000	(0,0,0)
+ 	Белый	#FFFFFF	(255 255 255)
+ 	Красный	# FF0000	(255,0,0)
+ 	Лайм	# 00FF00	(0,255,0)
+ 	Синий	# 0000FF	(0,0,255)
+ 	Желтый	# FFFF00	(255,255,0)
+ 	Голубой / Аква	# 00FFFF	(0,255,255)
+ 	Пурпурный / фуксия	# FF00FF	(255 0 255)
+ 	Серебряный	# C0C0C0	(192 192 192)
+ 	Серый	# 808080	(128 128 128)
+ 	Бордовый	# 800000	(128,0,0)
+ 	Оливковое	# 808000	(128,128,0)
+ 	Зеленый	# 008000	(0,128,0)
+ 	Фиолетовый	# 800080	(128,0,128)
+ 	Бирюзовый	# 008080	(0,128,128)
+ 	Флот	# 000080	(0,0,128)

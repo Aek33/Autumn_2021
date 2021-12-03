@@ -7,7 +7,6 @@ from PIL import Image
 import PIL
 import requests
 import datetime
-
 # 1 Import Numpy and display the version.
 print(f"Question 1\nNumPy version: {np.__version__}")
 # 2 Create a 1D array and a boolean array.
@@ -218,6 +217,36 @@ arr_44 = np.random.randint(0, 10, 20)
 c_sum = np.cumsum(arr_44, dtype=float)
 c_sum[2:] = (c_sum[2:] - c_sum[:1]) / 2
 print(f"Question 44\narray: {arr_44}\nmoving average: {c_sum[2:]}")
-# 45 create a numpy array sequence given only the starting point, length and the step.
+# 45 Create a numpy array sequence given only the starting point, length and the step.
 start, length, step = 3, 50, 3
 print(f"Question 45\narray: {np.arange(start, start + step * length, step)}")
+# 46 Fill in missing dates in an irregular series of numpy dates.
+dates = np.arange(np.datetime64('2021-11-04'), np.datetime64('2021-11-30'), 3)
+stride = (dates[1] - dates[0])
+q_47 = np.arange(np.datetime64(dates[0]), np.datetime64(dates[-1] + stride))
+print(f"Question 46\narray: {q_47}")
+# 47 Create strides from a given 1D array.
+arr_47 = np.arange(25)
+
+
+def stride(a, l, s):
+    rows = ((a.size - l) // s) + 1
+    return a[s * np.arange(rows)[:, None] + np.arange(l)]
+
+
+print(f"Question 48\nstrides: {stride(arr_47, 6, 4)}")
+# Make a scalar function to work on vectors using Numpy
+
+
+def func(a, b):
+    if a < b:
+        return a
+    else:
+        return b
+
+
+min_ = np.vectorize(func)
+x = np.array([1, 3, 5, 12, 10, 1])
+y = np.array([2, 3, 4, 67, 9, 1])
+print(f"task 4 Make a scalar function to work on vectors using Numpy\n"
+      f"Array 1:\n{x}\nArray 2:\n{y}\nvectorized:\n{min_(x, y)}")
